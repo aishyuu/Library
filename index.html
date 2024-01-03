@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <div class="header">
+        <h1>Library</h1>
+    </div>
+    <div class="content">
+        <dialog>
+            <form class="add-book-form">
+                <h1>Add New Book</h1>
+                <input type="text" name="title" id="title" placeholder="Title">
+                <input type="text" name="author" id="author" placeholder="Author">
+                <input type="number" name="pages" id="pages" placeholder="Pages">
+                <div class="completed-form-section">
+                    <label for="completed">Have you read it?</label>
+                    <input type="checkbox" name="completed" id="completed">
+                </div>
+                <button type="submit">Boop!</button>
+            </form>
+        </dialog>
+        <div>
+            <button>+Add Book</button>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
+
 </html>
