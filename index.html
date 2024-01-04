@@ -16,9 +16,9 @@
         <dialog>
             <form class="add-book-form">
                 <h1>Add New Book</h1>
-                <input type="text" name="title" id="title" placeholder="Title">
-                <input type="text" name="author" id="author" placeholder="Author">
-                <input type="number" name="pages" id="pages" placeholder="Pages">
+                <input type="text" name="title" id="title" placeholder="Title" required>
+                <input type="text" name="author" id="author" placeholder="Author" required>
+                <input type="number" name="pages" id="pages" placeholder="Pages" required>
                 <div class="completed-form-section">
                     <label for="completed">Have you read it?</label>
                     <input type="checkbox" name="completed" id="completed">
@@ -29,6 +29,9 @@
         <div>
             <button>+Add Book</button>
         </div>
+    </div>
+    <div class="books-display">
+            
     </div>
     <script src="main.js"></script>
 </body>
