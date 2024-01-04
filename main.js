@@ -75,13 +75,21 @@ function toggleCompletedProperty(button) {
     })
     const resultIndex = myLibrary.indexOf(result)
     myLibrary[resultIndex].completed = !myLibrary[resultIndex].completed
-    console.log(myLibrary[resultIndex])
+}
+
+function deleteBook(button) {
+    const bookTitle = button.parentNode.firstElementChild.innerText;
+    const result = myLibrary.find(book => {
+        return book.title === bookTitle
+    })
+    const resultIndex = myLibrary.indexOf(result)
+    myLibrary.splice(resultIndex, 1);
+    refreshLibraryDisplay();
 }
 
 function refreshLibraryFunctionality() {
     // The reason we're doing this is to prevent nested functions within a button press
     const allReadToggleButtons = document.querySelectorAll(".book-indiv-readButton-completed, .book-indiv-readButton-incomplete");
-    console.log(allReadToggleButtons);
     for (let index = 0; index < allReadToggleButtons.length; index++) {
         const element = allReadToggleButtons[index];
         element.addEventListener('click', () => {
@@ -93,6 +101,14 @@ function refreshLibraryFunctionality() {
                 element.classList = "book-indiv-readButton-completed";
             }
             toggleCompletedProperty(element)
+        })
+    }
+
+    const allRemoveButtons = document.querySelectorAll(".book-indiv-removeButton")
+    for (let index = 0; index < allRemoveButtons.length; index++) {
+        const element = allRemoveButtons[index];
+        element.addEventListener('click', () => {
+            deleteBook(element);
         })
     }
 }
@@ -124,6 +140,4 @@ addBookForm.addEventListener("submit", (e) => {
 })
 
 addBookToLibrary(new Book("A Game Of Thrones", "George R. R. Martin", 694, true));
-addBookToLibrary(new Book("A Game Of Thrones 2", "George R. R. Martin", 694, true));
-addBookToLibrary(new Book("A Game Of Thrones 3", "George R. R. Martin", 694, false));
 refreshLibraryDisplay();
